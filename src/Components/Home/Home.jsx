@@ -2,6 +2,8 @@ import React from "react";
 import './Home.css'
 import { Link } from "react-router-dom";
 import WhyChooseUs from "../WhyChooseUs/WhyChooseUs";
+import TeamSection from "../TeamSection/TeamSection";
+import TestimonialSection from "../TestimonialSection/TestimonialSection";
 export default function Home() {
     return (
         <>
@@ -19,6 +21,8 @@ export default function Home() {
                 </div>        
         </div>
         <WhyChooseUs />
+        <TeamSection />
+        <TestimonialSection />
         </>
     );
 }
