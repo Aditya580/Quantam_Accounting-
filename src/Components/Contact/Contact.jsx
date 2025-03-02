@@ -7,7 +7,8 @@ import './Contact.css'
             <div class="form-part">
                 <div class="form">
                     <div class="form-details">
-                        <h1>Hotel Contact Form</h1>
+                        <h1>Let's Connect with us </h1>
+                        
                         <div class="name">
                             
                             <div class="input">

@@ -6,12 +6,15 @@ import { FaBook , FaCalculator, FaMoneyCheckAlt , FaClipboardCheck ,FaMoneyBillW
  function Services() {
     return(
         <div>
-           <div id="img">
-                <h1> Our Services</h1>
-                <img className="object-cover" src="https://i.pinimg.com/736x/1b/44/55/1b4455b7dcb7716ee4d6728f09c15c11.jpg" alt="" />
+    
+            <div  className="bg-white border-gray-200 px-4 h-20 lg:px-6 py-2.5 mt-4">
+                <h1 className="text-3xl">Our Services</h1>
+                <h3 className=" text-gray-400 mt-2"> We Provide you varity of services </h3>
+
+                <img src="/Aboutus1.jpg" className='w-full h-full mb-4'alt="" />
             </div>
 
-            <div id="service" className="py-5">
+            <div id="service" className="py-5 mt-28">
                 <div className="row mb-5">
                     <div className="boxs">
                         
@@ -54,6 +57,7 @@ import { FaBook , FaCalculator, FaMoneyCheckAlt , FaClipboardCheck ,FaMoneyBillW
                             </h3>
                             <p>Dependable payroll management to ensure timely and accurate employee payments.</p>
                     </div>
+                    
                     <div className="boxs">
                             <h3>< FaFileInvoice/>
 
@@ -61,7 +65,33 @@ import { FaBook , FaCalculator, FaMoneyCheckAlt , FaClipboardCheck ,FaMoneyBillW
                             </h3>
                             <p>Expert guidance on tax planning and preparation to ensure compliance with local regulations.</p>
                     </div>
-                   
+
+                    </div>
+
+                    <div className="row mt-5">
+                    <div className="boxs">
+                            <h3>< FaFileInvoice/>
+
+                            Reporting and Budgeting 
+                            </h3>
+                            <p>Helps in analyzing financial data, tracking expenses, and creating accurate forecasts to optimize business growth.</p>
+                    </div>
+                    <div className="boxs">
+                            <h3>< FaFileInvoice/>
+
+                            Cashflow management 
+                            </h3>
+                            <p>Ensures smooth financial operations by monitoring incoming and outgoing cash, preventing shortages, and maintaining liquidity.</p>
+                    </div>
+                    <div className="boxs">
+                            <h3>< FaFileInvoice/>
+
+                            Book Keeping Clean up
+                            </h3>
+                            <p>Involves reviewing, correcting, and organizing financial records to eliminate errors, reconcile accounts, and ensure compliance.
+
+</p>
+                    </div>
                 </div>
 
 

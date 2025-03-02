@@ -5,22 +5,22 @@ import {Link,NavLink} from 'react-router-dom'
 export default function Header() {
     return (
         <header className="shadow sticky z-50 top-0">
-            <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5">
+            <nav className="bg-white border-gray-200 px-4 h-20 lg:px-6 py-2.5">
                 <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                     <Link to="/" className="flex items-center">
                         <img
-                            src="../public/logo.jpeg"
-                            className="mr-3 h-12"
+                            src="/logo2.jpeg"
+                            className="mr-3 justify-items-end h-full max-h-16"
                             alt="Logo"
                         />
                     </Link>
-                    <div className="flex items-center lg:order-2">
+                    <div className="flex items-center lg:order-2 ">
                         
                         <Link
                             to="#"
-                            className="text-white bg-[#9c8046] hover:bg-black focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
+                            className="font-helvetica text-white bg-[#EEA123] hover:bg-black focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-4 lg:py-2.5 mr-2 focus:outline-none"
                         >
-                            Contact-us
+                            Connect
                         </Link>
                     </div>
                     <div
@@ -33,7 +33,7 @@ export default function Header() {
                                 <NavLink
                                 to="/"
                                 className={({ isActive }) =>
-                                    `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-[#9c8046]" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-[#9c8046] lg:p-0`
+                                    `  font-helvetica font-semibold block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-[#EEA123]" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-[#9c8046] lg:p-0`
                                 }
                                 >
                                 Home
@@ -43,7 +43,7 @@ export default function Header() {
                                 <NavLink
                                 to="/about"
                                 className={({ isActive }) =>
-                                    `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-[#9c8046]" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-[#9c8046] lg:p-0`
+                                    `font-helvetica font-semibold block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-[#EEA123]" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-[#9c8046] lg:p-0`
                                 }
                                 >
                                 About
@@ -53,7 +53,7 @@ export default function Header() {
                                 <NavLink
                                 to="/services"
                                 className={({ isActive }) =>
-                                    `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-[#9c8046]" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-[#9c8046] lg:p-0`
+                                    `font-helvetica font-semibold block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-[#EEA123]" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-[#9c8046] lg:p-0`
                                 }
                                 >
                                 Services
@@ -63,7 +63,7 @@ export default function Header() {
                                 <NavLink
                                 to="/contact"
                                 className={({ isActive }) =>
-                                    `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-[#9c8046]" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-[#9c8046] lg:p-0`
+                                    `font-helvetica font-semibold block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-[#EEA123]" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-[#9c8046] lg:p-0`
                                 }
                                 >
                                 Contact

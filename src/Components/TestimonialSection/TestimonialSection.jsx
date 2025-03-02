@@ -90,6 +90,17 @@ const TestimonialSection = () => {
           </button>
         </div>
       </div>
+      <div className=" shadow w-full mt-14 flex flex-col items-center">
+  <h5 className="text-black font-bold uppercase text-center">
+    Tools that Accelerate the Working Efficiency
+  </h5>
+  <h1 className="text-2xl font-semibold text-center">
+    We use these tools for seamless Accounting
+  </h1>
+
+  <img src="/Tools.png" className="w-[800px] h-[600px] object-contain mt-4" />
+</div>
+
     </div>
   );
 };
