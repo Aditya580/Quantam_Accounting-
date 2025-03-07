@@ -6,8 +6,8 @@ import {Link,NavLink} from 'react-router-dom'
     return (
         <div>
             <div  className="bg-white border-gray-200 px-4 h-20 lg:px-6 py-2.5 mt-4">
-                <h1 className=" font-helvetica text-3xl">About Us</h1>
-                <h3 className="font-helvetica text-gray-400 mt-2"> Let's Build Trust Together </h3>
+                <h1 className=" font-helvetica text-3xl text-center">About Us</h1>
+                <h3 className="font-helvetica text-gray-400 mt-2 text-center"> Let's Build Trust Together </h3>
 
                 <img src="/Aboutus1.jpg" className='w-full h-full mb-4'alt="" />
             </div>

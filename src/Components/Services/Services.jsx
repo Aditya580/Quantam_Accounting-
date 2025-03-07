@@ -8,8 +8,8 @@ import { FaBook , FaCalculator, FaMoneyCheckAlt , FaClipboardCheck ,FaMoneyBillW
         <div>
     
             <div  className="bg-white border-gray-200 px-4 h-20 lg:px-6 py-2.5 mt-4">
-                <h1 className="text-3xl">Our Services</h1>
-                <h3 className=" text-gray-400 mt-2"> We Provide you varity of services </h3>
+                <h1 className="text-3xl text-center">Our Services</h1>
+                <h3 className=" text-gray-400 mt-2 text-center"> We Provide you varity of services </h3>
 
                 <img src="/Aboutus1.jpg" className='w-full h-full mb-4'alt="" />
             </div>
