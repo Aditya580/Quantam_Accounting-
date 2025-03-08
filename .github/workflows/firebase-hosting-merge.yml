@@ -16,19 +16,15 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '14'
+        node-version: '16' # Use Node.js version 16 or later
 
     - name: Install dependencies
       run: npm install
 
-    - name: Build project
+    - name: Build the project
       run: npm run build
 
     - name: Deploy to Firebase Hosting
-      env:
-        FIREBASE_SERVICE_ACCOUNT_QUANTUM_ACCOUNTING: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_QUANTUM_ACCOUNTING }}
-        FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_QUANTUM_ACCOUNTING.FIREBASE_TOKEN }}
-        VITE_FIREBASE_API_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_QUANTUM_ACCOUNTING.VITE_FIREBASE_API_KEY }}
-        VITE_FIREBASE_AUTH_DOMAIN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_QUANTUM_ACCOUNTING.VITE_FIREBASE_AUTH_DOMAIN }}
-        VITE_FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_QUANTUM_ACCOUNTING.VITE_FIREBASE_PROJECT_ID }}
       run: npx firebase-tools deploy --only hosting --project quantum-accounting
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
