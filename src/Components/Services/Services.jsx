@@ -86,7 +86,7 @@ import { FaBook , FaCalculator, FaMoneyCheckAlt , FaClipboardCheck ,FaMoneyBillW
                     <div className="boxs">
                             <h3>< FaFileInvoice/>
 
-                            Book Keeping Clean up
+                            Bookkeeping Clean-up
                             </h3>
                             <p>Involves reviewing, correcting, and organizing financial records to eliminate errors, reconcile accounts, and ensure compliance.
 

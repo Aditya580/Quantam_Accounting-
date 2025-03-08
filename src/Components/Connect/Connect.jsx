@@ -4,8 +4,8 @@ import {Link,NavLink} from 'react-router-dom'
 
 export default function Connect() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-orange-500 to-blue-600 p-8">
-      <h1 className="text-white text-3xl font-bold mb-8">Make a Healthy Connection with us</h1>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-300 p-8">
+      <h1 className="text-Black text-3xl font-bold mb-8">Make a Healthy Connection with us</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-3xl">
         <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center">
           <FaInstagram className="text-orange-600 text-5xl mb-4" />

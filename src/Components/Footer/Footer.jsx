@@ -8,8 +8,8 @@ export default function Footer() {
       <div className="mx-auto w-full max-w-screen-xl">
         <div className="md:flex md:justify-between p-5">
           <div className="mb-6 md:mb-0 flex flex-col items-center">
-            <Link to="/" className="items-center">
-              <img src="/logo.jpeg" className="mr-3 h-20 mb-4" alt="Logo" />
+            <Link to="/" className="items-start">
+              <img src="/logo2.jpeg" className="mr-0 h-20 mb-4" alt="Logo" />
             </Link>
             <p className="w-[30vw] flex flex-col justify-start items-start">
               <span className="w-full flex items-center p-1">
