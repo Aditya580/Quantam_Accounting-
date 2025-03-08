@@ -3,16 +3,16 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
-
 const firebaseConfig = {
-    apiKey: "AIzaSyDq4F2ZYcbURegjOZJi_tab5BcAq9R2Wmg",
-    authDomain: "quantum-accounting.firebaseapp.com",
-    projectId: "quantum-accounting",
-    storageBucket: "quantum-accounting.firebasestorage.app",
-    messagingSenderId: "640833327935",
-    appId: "1:640833327935:web:9dc9c388ec6bdb7d30f98a",
-    measurementId: "G-XQW4N19M7M"
-  };
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
+};
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
