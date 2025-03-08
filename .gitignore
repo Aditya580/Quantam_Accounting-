@@ -36,3 +36,15 @@ build/
 
 # Dependencies
 node_modules/
+
+# Firebase
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+.firebaserc
+
+# Environment
+.env
+.env.local
+.env.development
+.env.production
