@@ -12,19 +12,37 @@ const Contact = () => {
     message: "",
   });
   const [notification, setNotification] = useState("");
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const validateForm = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^[0-9]{10}$/;
+    if (!emailRegex.test(formData.email)) {
+      setError("Invalid email format.");
+      return false;
+    }
+    if (!phoneRegex.test(formData.phone)) {
+      setError("Phone number must be 10 digits.");
+      return false;
+    }
+    setError("");
+    return true;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateForm()) return;
     try {
       await addDoc(collection(db, "leads"), formData);
       setNotification("Submitted successfully! We will get in touch with you soon.");
       setFormData({ fname: "", lname: "", email: "", phone: "", message: "" }); // Clear form after submit
     } catch (error) {
       console.error("Error adding lead:", error);
+      setError("Error submitting the form. Please try again later.");
     }
   };
 
@@ -40,6 +58,17 @@ const Contact = () => {
           <span className="block sm:inline">{notification}</span>
           <span className="absolute top-0 bottom-0 right-0 px-4 py-3" onClick={dismissNotification}>
             <svg className="fill-current h-6 w-6 text-green-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <title>Close</title>
+              <path d="M14.348 5.652a.5.5 0 00-.707 0L10 9.293 6.36 5.652a.5.5 0 10-.707.707L9.293 10l-3.64 3.64a.5.5 0 00.707.707L10 10.707l3.64 3.64a.5.5 0 00.707-.707L10.707 10l3.64-3.64a.5.5 0 000-.707z"/>
+            </svg>
+          </span>
+        </div>
+      )}
+      {error && (
+        <div className="fixed bottom-4 right-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 flex gap-8 rounded relative shadow-lg w-[90%] sm:w-[50%] lg:w-[40%]" role="alert">
+          <span className="block sm:inline">{error}</span>
+          <span className="absolute top-0 bottom-0 right-0 px-4 py-3" onClick={() => setError("")}>
+            <svg className="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
               <title>Close</title>
               <path d="M14.348 5.652a.5.5 0 00-.707 0L10 9.293 6.36 5.652a.5.5 0 10-.707.707L9.293 10l-3.64 3.64a.5.5 0 00.707.707L10 10.707l3.64 3.64a.5.5 0 00.707-.707L10.707 10l3.64-3.64a.5.5 0 000-.707z"/>
             </svg>
