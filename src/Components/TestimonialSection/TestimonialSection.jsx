@@ -50,56 +50,67 @@ const TestimonialSection = () => {
   };
 
   return (
-    <div ref={ref} className="container py-10">
-      <div className="text-center max-w-xl mx-auto mb-10">
-        <h5 className="text-black font-bold uppercase">Testimonial</h5>
-        <h1 className="text-2xl font-semibold">What Our Clients Say About Our Digital Services</h1>
+    <div ref={ref} className="container mx-auto py-16 px-6 text-center">
+      <div className="max-w-2xl mx-auto mb-12">
+        <h5 className="text-[#EEA124] font-bold uppercase">Testimonial</h5>
+        <h1 className="text-3xl font-semibold leading-tight">
+          What Our Clients Say About Our Digital Services
+        </h1>
       </div>
-      <div className="relative overflow-hidden w-full max-w-2xl mx-auto">
+      <div className="relative w-full max-w-2xl mx-auto">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={index}
-            className="bg-gray-100 rounded-lg shadow-md p-6 flex flex-col items-center"
+            className="bg-gray-100 rounded-lg shadow-lg p-8 flex flex-col items-center"
             initial={{ opacity: 0, x: direction * 100 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -direction * 100 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.3 }}
           >
             <img
-              className="w-16 h-16 rounded-full mb-4 object-cover"
+              className="w-20 h-20 rounded-full mb-4 object-cover"
               src={testimonials[index].image}
               alt={testimonials[index].name}
             />
-            <h4 className="text-black font-semibold">{testimonials[index].name}</h4>
-            <p className="text-sm text-gray-600 uppercase">{testimonials[index].profession}</p>
-            <p className="text-gray-700 text-center mt-4">{testimonials[index].feedback}</p>
+            <h4 className="text-black font-semibold text-lg">{testimonials[index].name}</h4>
+            <p className="text-sm text-gray-600 uppercase mb-2">
+              {testimonials[index].profession}
+            </p>
+            <p className="text-gray-700 text-center max-w-md">
+              {testimonials[index].feedback}
+            </p>
           </motion.div>
         </AnimatePresence>
-        <div className="flex justify-between mt-4">
+        <div className="flex justify-between mt-6">
           <button
             onClick={prevTestimonial}
-            className="p-2 bg-black text-white rounded-full"
+            className="p-3 bg-black text-white rounded-full hover:bg-gray-800 transition"
           >
             <FaChevronLeft size={24} />
           </button>
           <button
             onClick={nextTestimonial}
-            className="p-2 bg-black text-white rounded-full"
+            className="p-3 bg-black text-white rounded-full hover:bg-gray-800 transition"
           >
             <FaChevronRight size={24} />
           </button>
         </div>
       </div>
-      <div className=" shadow w-full mt-14 flex flex-col items-center">
-  <h5 className="text-black font-bold uppercase text-center">
-    Tools that Accelerate the Working Efficiency
-  </h5>
-  <h1 className="text-2xl font-semibold text-center">
-    We use these tools for seamless Accounting
-  </h1>
-
-  <img src="/Tools1.png" className="w-[800px] h-[600px] object-contain mt-4" />
-</div>
+      
+      {/* Tools Section */}
+      <div className="w-full mt-20 flex flex-col items-center">
+        <h5 className="text-[#EEA124] font-bold uppercase text-center mb-2">
+          Tools that Accelerate the Working Efficiency
+        </h5>
+        <h1 className="text-3xl font-semibold text-center mb-6">
+          We use these tools for seamless Accounting
+        </h1>
+        <img
+          src="/Tools1.png"
+          className="w-[800px] h-[600px] object-contain"
+          alt="Tools"
+        />
+      </div>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { addDoc, collection } from "firebase/firestore"; 
-import { db } from "../../firebase"; 
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../../firebase";
 import "./Contact.css";
 
 const Contact = () => {
@@ -22,11 +22,13 @@ const Contact = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /^[0-9]{10}$/;
     if (!emailRegex.test(formData.email)) {
-      setError("Invalid email format.");
+      setError("❌ Invalid email format. Please enter a valid email.");
+      setNotification("");
       return false;
     }
     if (!phoneRegex.test(formData.phone)) {
-      setError("Phone number must be 10 digits.");
+      setError("❌ Invalid phone number. Please enter a 10-digit phone number.");
+      setNotification("");
       return false;
     }
     setError("");
@@ -38,130 +40,77 @@ const Contact = () => {
     if (!validateForm()) return;
     try {
       await addDoc(collection(db, "leads"), formData);
-      setNotification("Submitted successfully! We will get in touch with you soon.");
-      setFormData({ fname: "", lname: "", email: "", phone: "", message: "" }); // Clear form after submit
+      setNotification("✅ Form submitted successfully! We will get in touch with you soon.");
+      setError("");
+      setFormData({ fname: "", lname: "", email: "", phone: "", message: "" });
     } catch (error) {
       console.error("Error adding lead:", error);
-      setError("Error submitting the form. Please try again later.");
+      setError("❌ Error submitting the form. Please try again later.");
+      setNotification("");
     }
   };
 
-  const dismissNotification = () => {
-    setNotification("");
-  };
-
   return (
-    <>
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 py-8">
-      {notification && (
-        <div className="fixed bottom-4 right-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 flex gap-8 rounded relative shadow-lg w-[90%] sm:w-[50%] lg:w-[40%]" role="alert">
-          <span className="block sm:inline">{notification}</span>
-          <span className="absolute top-0 bottom-0 right-0 px-4 py-3" onClick={dismissNotification}>
-            <svg className="fill-current h-6 w-6 text-green-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-              <title>Close</title>
-              <path d="M14.348 5.652a.5.5 0 00-.707 0L10 9.293 6.36 5.652a.5.5 0 10-.707.707L9.293 10l-3.64 3.64a.5.5 0 00.707.707L10 10.707l3.64 3.64a.5.5 0 00.707-.707L10.707 10l3.64-3.64a.5.5 0 000-.707z"/>
-            </svg>
-          </span>
+    <div className="flex flex-col items-center bg-gray-100 min-h-screen mt-3 p-4">
+      <div className="flex flex-wrap w-full max-w-5xl bg-white shadow-lg rounded-lg overflow-hidden border-4 border-orange-400 border-b-blue-500 p-6">
+        <div className="hidden md:flex items-center justify-center w-full md:w-1/2 bg-[#EEA124] p-8">
+          <img src="/contact_pic.png" alt="Illustration" className="w-full max-w-xs md:max-w-sm h-auto" />
         </div>
-      )}
-      {error && (
-        <div className="fixed bottom-4 right-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 flex gap-8 rounded relative shadow-lg w-[90%] sm:w-[50%] lg:w-[40%]" role="alert">
-          <span className="block sm:inline">{error}</span>
-          <span className="absolute top-0 bottom-0 right-0 px-4 py-3" onClick={() => setError("")}>
-            <svg className="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-              <title>Close</title>
-              <path d="M14.348 5.652a.5.5 0 00-.707 0L10 9.293 6.36 5.652a.5.5 0 10-.707.707L9.293 10l-3.64 3.64a.5.5 0 00.707.707L10 10.707l3.64 3.64a.5.5 0 00.707-.707L10.707 10l3.64-3.64a.5.5 0 000-.707z"/>
-            </svg>
-          </span>
-        </div>
-      )}
-      <div className="form-part border-4 border-orange-500 border-b-blue-500 p-6 my-2 rounded-lg shadow-lg bg-white w-[90%] sm:w-[50%] lg:w-[40%]">
-        <form onSubmit={handleSubmit}>
-          <div className="form">
-            <div className="form-details text-center">
-              <h1 className="text-2xl font-bold mb-4">Let's Connect with Us</h1>
-              <div className="name mb-4">
-                <div className="input flex gap-4">
-                  <input
-                    type="text"
-                    name="fname"
-                    placeholder="First Name"
-                    value={formData.fname}
-                    onChange={handleChange}
-                    className="w-1/2 p-2 border rounded"
-                    required
-                  />
-                  <input
-                    type="text"
-                    name="lname"
-                    placeholder="Last Name"
-                    value={formData.lname}
-                    onChange={handleChange}
-                    className="w-1/2 p-2 border rounded"
-                    required
-                  />
-                </div>
-              </div>
-              <div className="name mb-4">
-                <div className="input flex gap-4">
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-1/2 p-2 border rounded"
-                    required
-                  />
-                  <input
-                    type="number"
-                    name="phone"
-                    placeholder="Phone Number"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-1/2 p-2 border rounded"
-                    required
-                  />
-                </div>
-              </div>
-              <div className="name mb-4">
-                <div className="input">
-                  <textarea
-                    name="message"
-                    placeholder="Message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full p-2 border rounded"
-                    required
-                  ></textarea>
-                </div>
-              </div>
-              <div className="name">
-                <div className="input text-center">
-                  <input
-                    type="submit"
-                    value="Submit"
-                    className="px-4 py-2 bg-blue-500 text-white rounded cursor-pointer hover:bg-blue-600"
-                  />
-                </div>
-              </div>
+
+        <div className="w-full md:w-1/2 p-4 md:p-8">
+          <h1 className="text-2xl md:text-3xl font-bold text-center mb-6 text-gray-800">
+            Let's Connect with Us
+          </h1>
+          {error && <p className="text-red-600 font-semibold text-center mb-4">{error}</p>}
+          {notification && <p className="text-green-600 font-semibold text-center mb-4">{notification}</p>}
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input 
+                type="text" name="fname" placeholder="First Name"
+                value={formData.fname} onChange={handleChange}
+                className="p-3 border rounded w-full" required
+              />
+              <input 
+                type="text" name="lname" placeholder="Last Name"
+                value={formData.lname} onChange={handleChange}
+                className="p-3 border rounded w-full" required
+              />
             </div>
-          </div>
-        </form>
+            <input 
+              type="email" name="email" placeholder="Email"
+              value={formData.email} onChange={handleChange}
+              className="w-full p-3 border rounded" required
+            />
+            <input 
+              type="number" name="phone" placeholder="Phone Number"
+              value={formData.phone} onChange={handleChange}
+              className="w-full p-3 border rounded" required
+            />
+            <textarea 
+              name="message" placeholder="Message"
+              value={formData.message} onChange={handleChange}
+              className="w-full p-3 border rounded" required
+            ></textarea>
+            <button type="submit" className="w-full p-3 bg-blue-500 text-white rounded hover:bg-green-600">
+              Submit
+            </button>
+          </form>
+        </div>
       </div>
-      <div className="map mt-6">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7340.129136832227!2d77.50634463731967!3d23.09473208553464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c47b6d656d071%3A0xa4ae9a9957a321eb!2sShiv%20vatika%20Patel%20Nagar%20Mandideep!5e0!3m2!1sen!2sin!4v1741354674279!5m2!1sen!2sin"
-          width="800"
-          height="600"
-          className="w-[85vw] h-[70vh] border-2 border-orange-500"
-          allowFullScreen=""
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
+
+      <div className="w-full max-w-5xl mt-8 px-4">
+        <h2 className="text-lg md:text-xl font-semibold text-gray-700 text-center mb-4">📍 Find Us Here</h2>
+        <div className="w-full h-64 md:h-96 rounded-lg overflow-hidden shadow-lg">
+          <iframe
+            title="Google Map"
+            className="w-full h-full"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7340.129136832227!2d77.50634463731967!3d23.09473208553464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c47b6d656d071%3A0xa4ae9a9957a321eb!2sShiv%20vatika%20Patel%20Nagar%20Mandideep!5e0!3m2!1sen!2sin!4v1741711765786!5m2!1sen!2sin"
+            allowFullScreen
+            loading="lazy"
+          ></iframe>
+        </div>
       </div>
     </div>
-    </>
   );
 };
 

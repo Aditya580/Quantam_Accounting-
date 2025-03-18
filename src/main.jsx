@@ -12,6 +12,7 @@ import {AuthProvider} from './AuthContext.jsx'
 import PrivateRoute from './privateRoute.jsx'
 import Dashboard from './Components/Dashboard/dashboard.jsx'
 import Login from './Components/Auth/login.jsx'
+import Terms from './Components/Terms/Terms.jsx'
 
 const router =createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router =createBrowserRouter([
       {
         path:'contact',
         element:<Contact/>
+      },
+      {
+        path:'terms',
+        element:<Terms/>
       },
       {
 

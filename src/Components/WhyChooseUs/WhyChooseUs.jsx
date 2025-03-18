@@ -3,7 +3,6 @@ import { FaUsersCog, FaShieldAlt, FaReact, FaTools } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-
 const MotionDiv = ({ children, delay = 0 }) => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
@@ -21,57 +20,84 @@ const MotionDiv = ({ children, delay = 0 }) => {
 
 const WhyChooseUs = () => {
   return (
-    <div className="container-fluid pb-2">
-      <div className="container p-5">
-        <MotionDiv>
-          <div className="section-title text-center relative pb-3 mb-5 mx-auto max-w-xl">
-            <h5 className=" font-helvetica font-bold text-2xl text-gray-900 dark:text-black">Why Choose Us</h5>
-            <h1 className=" font-helvetica mb-0">We Are Here to Grow Your Business Exponentially</h1>
-          </div>
-        </MotionDiv>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {/* Left Column */}
-          <div className="space-y-5 p-5">
-            <MotionDiv delay={0.2}>
-              <div className="w-16 h-16 bg-black rounded flex items-center justify-center mb-3">
-                <FaUsersCog className="text-white text-xl" />
+    <div className="container mx-auto px-6 py-10">
+      {/* Section Title */}
+      <MotionDiv>
+        <div className="text-center mb-10">
+          <h5 className="font-bold text-lg text-[#EEA124] uppercase tracking-wide">
+            Why Choose Us
+          </h5>
+          <h1 className="text-3xl font-extrabold text-gray-900 dark:text-black">
+            We Help Your Business Grow Exponentially 🚀
+          </h1>
+        </div>
+      </MotionDiv>
+
+      {/* Grid Layout */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-16 items-center justify-center">
+        {/* Left Column */}
+        <div className="space-y-8">
+          <MotionDiv delay={0.2}>
+            <div className="flex items-start space-x-5">
+              <div className="w-14 h-14 bg-[#EEA124] rounded-full flex items-center justify-center shadow-md">
+                <FaUsersCog className="text-white text-2xl" />
               </div>
-              <h4 className=" font-helvetica text-2xl font-bold text-gray-900 dark:text-black">Expert Team</h4>
-              <p>
-                Our team consists of seasoned professionals with years of experience in the digital marketing industry...
-              </p>
-            </MotionDiv>
-            <MotionDiv delay={0.4}>
-              <div className="w-16 h-16 bg-black rounded flex items-center justify-center mb-3">
-                <FaShieldAlt className="text-white text-2xl" />
+              <div>
+                <h4 className="text-xl font-semibold text-gray-900 mt-2">Expert Team</h4>
+                <p className="text-gray-600 text-sm">
+                  Our team consists of highly skilled professionals with extensive experience.
+                </p>
               </div>
-              <h4 className=" font-helvetica text-2xl font-bold text-gray-900 dark:text-black">Confidentiality Assured</h4>
-              <p>We prioritize the security and confidentiality of your financial data.</p>
-            </MotionDiv>
-          </div>
-          {/* Middle Image */}
-          <MotionDiv delay={0.6}>
-            <div className="h-[70vh] relative">
-              <img src="/pic2.jpg" alt="Feature" className="w-full h-full object-cover rounded" />
             </div>
           </MotionDiv>
-          {/* Right Column */}
-          <div className="space-y-5 p-5">
-            <MotionDiv delay={0.8}>
-              <div className="w-16 h-16 bg-black rounded flex items-center justify-center mb-3">
-                <FaReact className="text-white text-3xl" />
+          <MotionDiv delay={0.4}>
+            <div className="flex items-start space-x-5">
+              <div className="w-14 h-14 bg-[#EEA124] rounded-full flex items-center justify-center shadow-md">
+                <FaShieldAlt className="text-white text-2xl" />
               </div>
-              <h4 className=" font-helvetica text-2xl font-bold text-gray-900 dark:text-black">Cost-Effective Solutions</h4>
-              <p>Save on overhead costs without compromising on quality.</p>
-            </MotionDiv>
-            <MotionDiv delay={1.0}>
-              <div className="w-16 h-16 bg-black rounded flex items-center justify-center mb-3">
+              <div>
+                <h4 className="text-xl font-semibold text-gray-900 mt-2">Confidentiality Assured</h4>
+                <p className="text-gray-600 text-sm">We prioritize security and ensure your data remains safe.</p>
+              </div>
+            </div>
+          </MotionDiv>
+        </div>
+
+        {/* Center Image */}
+        <MotionDiv delay={0.6}>
+          <div className="w-full flex justify-center">
+            <img
+              src="/pic2.jpg"
+              alt="Feature"
+              className="w-80 h-80 object-cover rounded-lg shadow-lg"
+            />
+          </div>
+        </MotionDiv>
+
+        {/* Right Column */}
+        <div className="space-y-8">
+          <MotionDiv delay={0.8}>
+            <div className="flex items-start space-x-5">
+              <div className="w-14 h-14 bg-[#EEA124] rounded-full flex items-center justify-center shadow-md">
+                <FaReact className="text-white text-2xl" />
+              </div>
+              <div>
+                <h4 className="text-xl font-semibold text-gray-900 mt-2">Cost-Effective Solutions</h4>
+                <p className="text-gray-600 text-sm">Save costs while ensuring high-quality results.</p>
+              </div>
+            </div>
+          </MotionDiv>
+          <MotionDiv delay={1.0}>
+            <div className="flex items-start space-x-5">
+              <div className="w-14 h-14 bg-[#EEA124] rounded-full flex items-center justify-center shadow-md">
                 <FaTools className="text-white text-2xl" />
               </div>
-              <h4 className=" font-helvetica text-2xl font-bold text-gray-900 dark:text-black">Customized Services</h4>
-              <p>Tailored solutions to address the unique needs of your business.</p>
-            </MotionDiv>
-          </div>
+              <div>
+                <h4 className="text-xl font-semibold text-gray-900 mt-2">Customized Services</h4>
+                <p className="text-gray-600 text-sm">We tailor solutions to meet your business needs.</p>
+              </div>
+            </div>
+          </MotionDiv>
         </div>
       </div>
     </div>
